@@ -15,7 +15,8 @@ the application, so the computer it runs on needs **no Python installation**. It
   Python (3.12, from `.python-version`) automatically.
 * An internet connection for the first `uv sync`.
 
-Everything below is run in the `app` folder.
+Open a terminal in the project folder (the one that contains `app`); every block below starts
+with `cd app`.
 
 ## 2. Windows (PowerShell)
 
@@ -99,7 +100,8 @@ Custom propellants uploaded in the app are stored in a `user_propellants` folder
 program (or in `~/.rocket_propulsion_simulator/user_propellants` if that folder is not
 writable).
 
-To distribute the app, zip the folder `dist/RocketPropulsionSimulator` (or the single file).
+To distribute the app, zip the folder `dist/RocketPropulsionSimulator` (or the single file)
+and include the `LICENSE` file.
 The first start can take several seconds (the single-file build unpacks itself to a temporary
 folder on every start; Matplotlib builds its font cache once).
 
@@ -108,5 +110,9 @@ folder on every start; Matplotlib builds its font cache once).
 * **`ModuleNotFoundError` when the built program starts** – add the module to `hiddenimports`
   in `rocket_propulsion_simulator.spec` and build again.
 * **Template or static file not found** – check the `datas` list in the spec file.
+* **The program window closes immediately** – start it from a terminal (PowerShell, Command
+  Prompt or Terminal) instead of double-clicking it, so the error message stays visible.
+* **Changes to the code are missing in the program** – the build is a snapshot; build it again
+  after every change.
 * **Clean rebuild** – delete the `build` and `dist` folders (the `--clean` option clears
   PyInstaller's cache).
