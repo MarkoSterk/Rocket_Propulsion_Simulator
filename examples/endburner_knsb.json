@@ -1,0 +1,7 @@
+{
+  "name": "End burner (fireworks motor), KNSB",
+  "propellant": "KNSB",
+  "grain": {"type": "endburner", "outer_diameter_mm": 46.0, "length_mm": 300.0},
+  "chamber": {"inner_diameter_mm": 46.0, "length_mm": 310.0},
+  "nozzle": {"throat_diameter_mm": 2.88, "exit_diameter_mm": 7.05}
+}

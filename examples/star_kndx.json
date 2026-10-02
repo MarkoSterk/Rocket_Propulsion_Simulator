@@ -1,0 +1,9 @@
+{
+  "name": "7-point star canal, KNDX",
+  "propellant": "KNDX",
+  "grain": {"type": "star", "points": 7, "outer_diameter_mm": 46.0, "length_mm": 300.0,
+            "star_inner_diameter_mm": 8.0, "star_outer_diameter_mm": 26.0},
+  "chamber": {"inner_diameter_mm": 46.0, "length_mm": 310.0},
+  "nozzle": {"throat_diameter_mm": 14.75, "exit_diameter_mm": 36.13,
+             "divergence_half_angle_deg": 15.0, "efficiency": 0.90}
+}

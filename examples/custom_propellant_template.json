@@ -1,0 +1,19 @@
+{
+  "name": "MYPROP",
+  "description": "Template for a user-defined propellant. Replace all values with your own data (e.g. from a strand-burner test and a thermochemical code such as PROPEP/CEA).",
+  "composition": {"KNO3": 0.65, "my fuel": 0.35},
+  "density": 1800,
+  "density_ideal": 1880,
+  "combustion_temperature": 1650,
+  "molar_mass": 41.0,
+  "gamma_chamber": 1.13,
+  "gamma_exhaust": 1.04,
+  "burn_rate": {
+    "units": {"pressure": "MPa", "rate": "mm/s"},
+    "ranges": [
+      {"p_min": 0.1, "p_max": 2.0, "a": 8.0, "n": 0.30},
+      {"p_min": 2.0, "p_max": 8.0, "a": 7.0, "n": 0.45}
+    ]
+  },
+  "references": ["your measurements"]
+}

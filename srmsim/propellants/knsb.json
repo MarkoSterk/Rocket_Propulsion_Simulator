@@ -1,0 +1,25 @@
+{
+  "name": "KNSB",
+  "description": "Potassium nitrate / sorbitol 65/35 (O/F by mass), cast. Data after R. Nakka.",
+  "composition": {"KNO3": 0.65, "C6H14O6 (sorbitol)": 0.35},
+  "density": 1750,
+  "density_ideal": 1841,
+  "combustion_temperature": 1600,
+  "molar_mass": 39.90,
+  "gamma_chamber": 1.1361,
+  "gamma_exhaust": 1.042,
+  "burn_rate": {
+    "units": {"pressure": "MPa", "rate": "mm/s"},
+    "ranges": [
+      {"p_min": 0.103, "p_max": 0.807, "a": 10.708, "n": 0.625},
+      {"p_min": 0.807, "p_max": 1.503, "a": 8.763,  "n": -0.314},
+      {"p_min": 1.503, "p_max": 3.792, "a": 7.852,  "n": -0.013},
+      {"p_min": 3.792, "p_max": 7.033, "a": 3.907,  "n": 0.535},
+      {"p_min": 7.033, "p_max": 10.67, "a": 9.653,  "n": 0.064}
+    ]
+  },
+  "references": [
+    "R. Nakka, KNSB propellant, http://www.nakka-rocketry.net/sorb.html",
+    "D. Reilly et al., openMotor, https://github.com/reilleya/openMotor"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "4 BATES segments, circular canal, KNSU",
+  "propellant": "KNSU",
+  "grain": {"type": "circular", "outer_diameter_mm": 46.0, "core_diameter_mm": 16.0, "length_mm": 75.0,
+            "segments": 4, "burning_faces": "both", "segment_gap_mm": 0.0},
+  "chamber": {"inner_diameter_mm": 46.0, "length_mm": 310.0},
+  "nozzle": {"throat_diameter_mm": 14.15, "exit_diameter_mm": 34.66,
+             "divergence_half_angle_deg": 15.0, "efficiency": 0.90}
+}

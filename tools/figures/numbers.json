@@ -1,0 +1,322 @@
+{
+  "study": {
+    "A": {
+      "label": "krožni kanal",
+      "throat_mm": 16.78,
+      "exit_mm": 41.11,
+      "web_mm": 15.0,
+      "runs": {
+        "KNSU": {
+          "propellant_mass_kg": 0.7867,
+          "peak_pressure_MPa": 4.001,
+          "peak_thrust_N": 1252.1,
+          "average_thrust_N": 632.0,
+          "total_impulse_Ns": 917.1,
+          "burn_time_s": 1.451,
+          "grain_burnout_s": 1.443,
+          "specific_impulse_s": 118.9,
+          "motor_class": "J632",
+          "initial_Kn": 68.2,
+          "peak_Kn": 196.0,
+          "warnings": []
+        },
+        "KNDX": {
+          "propellant_mass_kg": 0.7823,
+          "peak_pressure_MPa": 2.318,
+          "peak_thrust_N": 675.8,
+          "average_thrust_N": 419.4,
+          "total_impulse_Ns": 839.0,
+          "burn_time_s": 2.001,
+          "grain_burnout_s": 1.995,
+          "specific_impulse_s": 109.4,
+          "motor_class": "J419",
+          "initial_Kn": 68.2,
+          "peak_Kn": 196.0,
+          "warnings": []
+        },
+        "KNSB": {
+          "propellant_mass_kg": 0.7669,
+          "peak_pressure_MPa": 2.343,
+          "peak_thrust_N": 684.6,
+          "average_thrust_N": 438.1,
+          "total_impulse_Ns": 826.9,
+          "burn_time_s": 1.887,
+          "grain_burnout_s": 1.88,
+          "specific_impulse_s": 109.9,
+          "motor_class": "J438",
+          "initial_Kn": 68.2,
+          "peak_Kn": 196.0,
+          "warnings": []
+        }
+      }
+    },
+    "B": {
+      "label": "7-kraki zvezdasti kanal",
+      "throat_mm": 16.88,
+      "exit_mm": 41.36,
+      "web_mm": 12.43,
+      "runs": {
+        "KNSU": {
+          "propellant_mass_kg": 0.8099,
+          "peak_pressure_MPa": 4.0,
+          "peak_thrust_N": 1267.0,
+          "average_thrust_N": 1030.4,
+          "total_impulse_Ns": 991.0,
+          "burn_time_s": 0.962,
+          "grain_burnout_s": 1.125,
+          "specific_impulse_s": 124.8,
+          "motor_class": "J1030",
+          "initial_Kn": 180.6,
+          "peak_Kn": 195.6,
+          "warnings": []
+        },
+        "KNDX": {
+          "propellant_mass_kg": 0.8054,
+          "peak_pressure_MPa": 2.316,
+          "peak_thrust_N": 683.1,
+          "average_thrust_N": 586.0,
+          "total_impulse_Ns": 908.2,
+          "burn_time_s": 1.55,
+          "grain_burnout_s": 1.828,
+          "specific_impulse_s": 115.0,
+          "motor_class": "J586",
+          "initial_Kn": 180.6,
+          "peak_Kn": 195.6,
+          "warnings": []
+        },
+        "KNSB": {
+          "propellant_mass_kg": 0.7896,
+          "peak_pressure_MPa": 2.341,
+          "peak_thrust_N": 692.0,
+          "average_thrust_N": 593.2,
+          "total_impulse_Ns": 891.4,
+          "burn_time_s": 1.503,
+          "grain_burnout_s": 1.683,
+          "specific_impulse_s": 115.1,
+          "motor_class": "J593",
+          "initial_Kn": 180.6,
+          "peak_Kn": 195.6,
+          "warnings": []
+        }
+      }
+    },
+    "C": {
+      "label": "križni kanal",
+      "throat_mm": 17.43,
+      "exit_mm": 42.7,
+      "web_mm": 14.03,
+      "runs": {
+        "KNSU": {
+          "propellant_mass_kg": 0.7754,
+          "peak_pressure_MPa": 4.0,
+          "peak_thrust_N": 1350.5,
+          "average_thrust_N": 869.6,
+          "total_impulse_Ns": 902.7,
+          "burn_time_s": 1.038,
+          "grain_burnout_s": 1.511,
+          "specific_impulse_s": 118.7,
+          "motor_class": "J870",
+          "initial_Kn": 150.4,
+          "peak_Kn": 195.4,
+          "warnings": []
+        },
+        "KNDX": {
+          "propellant_mass_kg": 0.7711,
+          "peak_pressure_MPa": 2.315,
+          "peak_thrust_N": 727.7,
+          "average_thrust_N": 528.6,
+          "total_impulse_Ns": 825.0,
+          "burn_time_s": 1.561,
+          "grain_burnout_s": 2.378,
+          "specific_impulse_s": 109.1,
+          "motor_class": "J529",
+          "initial_Kn": 150.4,
+          "peak_Kn": 195.4,
+          "warnings": []
+        },
+        "KNSB": {
+          "propellant_mass_kg": 0.756,
+          "peak_pressure_MPa": 2.339,
+          "peak_thrust_N": 737.1,
+          "average_thrust_N": 536.2,
+          "total_impulse_Ns": 815.8,
+          "burn_time_s": 1.521,
+          "grain_burnout_s": 2.082,
+          "specific_impulse_s": 110.0,
+          "motor_class": "J536",
+          "initial_Kn": 150.4,
+          "peak_Kn": 195.4,
+          "warnings": []
+        }
+      }
+    },
+    "D": {
+      "label": "izmaknjen krožni kanal",
+      "throat_mm": 11.57,
+      "exit_mm": 28.34,
+      "web_mm": 25.9,
+      "runs": {
+        "KNSU": {
+          "propellant_mass_kg": 0.7579,
+          "peak_pressure_MPa": 4.0,
+          "peak_thrust_N": 594.8,
+          "average_thrust_N": 419.1,
+          "total_impulse_Ns": 920.5,
+          "burn_time_s": 2.196,
+          "grain_burnout_s": 2.295,
+          "specific_impulse_s": 123.9,
+          "motor_class": "J419",
+          "initial_Kn": 163.4,
+          "peak_Kn": 195.8,
+          "warnings": []
+        },
+        "KNDX": {
+          "propellant_mass_kg": 0.7536,
+          "peak_pressure_MPa": 2.317,
+          "peak_thrust_N": 320.9,
+          "average_thrust_N": 248.5,
+          "total_impulse_Ns": 841.8,
+          "burn_time_s": 3.387,
+          "grain_burnout_s": 3.511,
+          "specific_impulse_s": 113.9,
+          "motor_class": "J249",
+          "initial_Kn": 163.4,
+          "peak_Kn": 195.8,
+          "warnings": []
+        },
+        "KNSB": {
+          "propellant_mass_kg": 0.7389,
+          "peak_pressure_MPa": 2.342,
+          "peak_thrust_N": 325.0,
+          "average_thrust_N": 253.0,
+          "total_impulse_Ns": 826.1,
+          "burn_time_s": 3.265,
+          "grain_burnout_s": 3.311,
+          "specific_impulse_s": 114.0,
+          "motor_class": "J253",
+          "initial_Kn": 163.4,
+          "peak_Kn": 195.8,
+          "warnings": []
+        }
+      }
+    },
+    "E": {
+      "label": "čelni gorilnik",
+      "throat_mm": 3.29,
+      "exit_mm": 8.07,
+      "web_mm": 300.0,
+      "runs": {
+        "KNSU": {
+          "propellant_mass_kg": 0.8949,
+          "peak_pressure_MPa": 3.999,
+          "peak_thrust_N": 48.2,
+          "average_thrust_N": 47.9,
+          "total_impulse_Ns": 1131.9,
+          "burn_time_s": 23.628,
+          "grain_burnout_s": 23.345,
+          "specific_impulse_s": 129.0,
+          "motor_class": "J48",
+          "initial_Kn": 194.9,
+          "peak_Kn": 194.9,
+          "warnings": []
+        },
+        "KNDX": {
+          "propellant_mass_kg": 0.8899,
+          "peak_pressure_MPa": 2.311,
+          "peak_thrust_N": 25.9,
+          "average_thrust_N": 25.9,
+          "total_impulse_Ns": 1041.2,
+          "burn_time_s": 40.258,
+          "grain_burnout_s": 40.022,
+          "specific_impulse_s": 119.3,
+          "motor_class": "J26",
+          "initial_Kn": 194.9,
+          "peak_Kn": 194.9,
+          "warnings": []
+        },
+        "KNSB": {
+          "propellant_mass_kg": 0.8725,
+          "peak_pressure_MPa": 2.336,
+          "peak_thrust_N": 26.3,
+          "average_thrust_N": 26.2,
+          "total_impulse_Ns": 1018.3,
+          "burn_time_s": 38.868,
+          "grain_burnout_s": 38.631,
+          "specific_impulse_s": 119.0,
+          "motor_class": "J26",
+          "initial_Kn": 194.9,
+          "peak_Kn": 194.9,
+          "warnings": []
+        }
+      }
+    }
+  },
+  "designA_tau_s": 0.0009626602137519514,
+  "cstar": {
+    "KNSU": 895.4790112634934,
+    "KNDX": 889.5967484168567,
+    "KNSB": 885.4428450820346
+  },
+  "bates": {
+    "1 × 300 mm, gori le kanal": {
+      "propellant_mass_kg": 0.7867,
+      "peak_pressure_MPa": 4.001,
+      "peak_thrust_N": 1252.1,
+      "average_thrust_N": 632.0,
+      "total_impulse_Ns": 917.1,
+      "burn_time_s": 1.451,
+      "grain_burnout_s": 1.443,
+      "specific_impulse_s": 118.9,
+      "motor_class": "J632",
+      "initial_Kn": 68.2,
+      "peak_Kn": 196.0,
+      "throat_mm": 16.78,
+      "web_mm": 15.0,
+      "Ab0_cm2": 150.8,
+      "Ab_max_cm2": 433.4,
+      "Ab_end_cm2": 433.4,
+      "p_min_burn_MPa": 0.952,
+      "tau_ms": 0.96
+    },
+    "3 × 100 mm, kanal in obe čeli": {
+      "propellant_mass_kg": 0.7867,
+      "peak_pressure_MPa": 4.0,
+      "peak_thrust_N": 903.0,
+      "average_thrust_N": 808.3,
+      "total_impulse_Ns": 985.4,
+      "burn_time_s": 1.219,
+      "grain_burnout_s": 1.205,
+      "specific_impulse_s": 127.7,
+      "motor_class": "J808",
+      "initial_Kn": 149.4,
+      "peak_Kn": 195.0,
+      "throat_mm": 14.25,
+      "web_mm": 15.0,
+      "Ab0_cm2": 238.4,
+      "Ab_max_cm2": 311.1,
+      "Ab_end_cm2": 303.5,
+      "p_min_burn_MPa": 2.852,
+      "tau_ms": 1.33
+    },
+    "4 × 75 mm, kanal in obe čeli": {
+      "propellant_mass_kg": 0.7867,
+      "peak_pressure_MPa": 4.0,
+      "peak_thrust_N": 889.4,
+      "average_thrust_N": 818.7,
+      "total_impulse_Ns": 988.1,
+      "burn_time_s": 1.207,
+      "grain_burnout_s": 1.194,
+      "specific_impulse_s": 128.1,
+      "motor_class": "J819",
+      "initial_Kn": 170.3,
+      "peak_Kn": 194.9,
+      "throat_mm": 14.15,
+      "web_mm": 15.0,
+      "Ab0_cm2": 267.7,
+      "Ab_max_cm2": 306.4,
+      "Ab_end_cm2": 260.2,
+      "p_min_burn_MPa": 3.164,
+      "tau_ms": 1.35
+    }
+  }
+}

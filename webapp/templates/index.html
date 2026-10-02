@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ info.name }}</title>
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='logo.svg') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+  <img class="logo" src="{{ url_for('static', filename='logo.svg') }}" width="48" height="48" alt="">
+  <div class="brand">
+    <h1>{{ info.name }}</h1>
+    <p>Internal ballistics of a solid rocket motor with one grain or several BATES segments: chamber pressure and thrust</p>
+  </div>
+  <button type="button" id="about_btn" class="about-btn" aria-haspopup="dialog">About</button>
+</header>
+
+<dialog id="about" class="about" aria-labelledby="about_title">
+  <div class="about-head">
+    <img src="{{ url_for('static', filename='logo.svg') }}" width="72" height="72" alt="Rocket Propulsion Simulator logo">
+    <div>
+      <h2 id="about_title">{{ info.name }}</h2>
+      <p>Internal-ballistics simulator for solid rocket motors</p>
+    </div>
+  </div>
+  <dl class="about-data">
+    <dt>Version</dt><dd>{{ info.version }}</dd>
+    <dt>Author</dt><dd>{{ info.author }}</dd>
+    <dt>Contact</dt><dd><a href="mailto:{{ info.email }}">{{ info.email }}</a></dd>
+    <dt>License</dt><dd>{{ info.license }} · © {{ info.year }} Marko Šterk. Free to use, modify and share;
+      provided “as is”, without warranty of any kind.</dd>
+  </dl>
+  <div class="about-warn" role="note">
+    <strong>Warning: rocket motors are dangerous.</strong>
+    Making, handling or firing rocket propellants and motors can cause severe burns, injuries, fires and explosions,
+    and is regulated by law. This application is for education only; its results are model estimates, not
+    verified designs. Follow the law and the safety code of your national rocketry association and never work
+    with propellants without expert supervision.
+  </div>
+  <form method="dialog" class="about-actions"><button type="submit" class="primary" autofocus>Close</button></form>
+</dialog>
+
+<main>
+<form id="form" autocomplete="off">
+  <section>
+    <h2>Propellant</h2>
+    <label>Propellant
+      <select id="propellant" name="propellant">
+        {% for p in propellants %}<option value="{{ p }}">{{ p }}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" id="compare_all"> Compare all propellants</label>
+    <div id="propinfo" class="propinfo"></div>
+    <label class="upload">Add a custom propellant (JSON)
+      <input type="file" id="propfile" accept=".json,application/json">
+    </label>
+    <div id="uploadmsg" class="msg"></div>
+  </section>
+
+  <section>
+    <h2>Grain</h2>
+    <label>Canal shape
+      <select id="gtype">
+        <option value="circular">Circular canal (burns on the canal)</option>
+        <option value="star">Star canal</option>
+        <option value="cross">Cross / slotted canal</option>
+        <option value="moon">Displaced circular canal (moon burner)</option>
+        <option value="endburner">End burner, no canal (burns on the nozzle-side face)</option>
+      </select>
+    </label>
+    <div class="grid2">
+      <label><span data-g="circular star cross moon">Segment length L [mm]</span><span data-g="endburner">Grain length L [mm]</span><input type="number" step="any" min="1" id="length_mm" value="300"></label>
+      <label>Outer diameter D [mm]<input type="number" step="any" min="1" id="outer_diameter_mm" value="46"></label>
+      <label data-g="circular moon">Canal diameter d [mm]<input type="number" step="any" min="0.1" id="core_diameter_mm" value="16"></label>
+      <label data-g="moon">Canal offset e [mm]<input type="number" step="any" min="0" id="offset_mm" value="12"></label>
+      <label data-g="star">Number of points<input type="number" step="1" min="3" max="12" id="points" value="7"></label>
+      <label data-g="star">Star valley diameter [mm]<input type="number" step="any" min="0.1" id="star_inner_diameter_mm" value="8"></label>
+      <label data-g="star">Star tip diameter [mm]<input type="number" step="any" min="0.1" id="star_outer_diameter_mm" value="26"></label>
+      <label data-g="cross">Number of slots<input type="number" step="1" min="2" max="12" id="slots" value="4"></label>
+      <label data-g="cross">Slot width [mm]<input type="number" step="any" min="0.1" id="slot_width_mm" value="4"></label>
+      <label data-g="cross">Slot span (tip to tip) [mm]<input type="number" step="any" min="0.1" id="slot_span_mm" value="30"></label>
+    </div>
+    <div class="grid2" data-g="circular star cross moon">
+      <label>Number of segments N<input type="number" step="1" min="1" max="12" id="segments" value="1"></label>
+      <label>Gap between segments [mm]<input type="number" step="any" min="0" id="segment_gap_mm" value="0"></label>
+    </div>
+    <label data-g="circular star cross moon">Burning surfaces (of every segment)
+      <select id="burning_faces">
+        <option value="none">Canal only (both end faces inhibited)</option>
+        <option value="aft">Canal + nozzle-side end face</option>
+        <option value="both">Canal + both end faces (BATES)</option>
+      </select>
+    </label>
+    <p class="hint" id="grainhint">Every grain is bonded to the case, so its outer surface never burns.</p>
+  </section>
+
+  <section>
+    <h2>Nozzle</h2>
+    <div class="grid2">
+      <label>Throat diameter [mm]<input type="number" step="any" min="0.1" id="throat_diameter_mm" value="14.6"></label>
+      <label>Exit diameter [mm]<input type="number" step="any" min="0.1" id="exit_diameter_mm" value="35.8"></label>
+      <label>Divergence half-angle [°]<input type="number" step="any" min="0" max="45" id="half_angle_deg" value="15"></label>
+      <label>Nozzle efficiency η<sub>F</sub><input type="number" step="any" min="0.1" max="1" id="efficiency" value="0.90"></label>
+    </div>
+    <div class="row">
+      <label>Target peak pressure [MPa]<input type="number" step="any" min="0.2" id="target_pressure_MPa" value="4.0"></label>
+      <button type="button" id="size">Size throat</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Other parameters</h2>
+    <div class="grid2">
+      <label>c* efficiency η*<input type="number" step="any" min="0.5" max="1" id="cstar_efficiency" value="0.975"></label>
+      <label>Burn-rate multiplier k<sub>r</sub><input type="number" step="any" min="0.1" max="3" id="burn_rate_multiplier" value="1.0"></label>
+      <label>Free chamber length [mm]<input type="number" step="any" min="1" id="free_length_mm" value="10"></label>
+      <label>Ambient pressure [kPa]<input type="number" step="any" min="1" id="ambient_pressure_kPa" value="101.325"></label>
+      <label>Burnout spread ± [%]<input type="number" step="any" min="0" max="40" id="burnout_spread_pct" value="0"></label>
+    </div>
+    <p class="hint">Burnout spread (optional, empirical): the local burn rate varies by ± this percentage along the
+      grain, so the flame front reaches the case gradually and the tail-off becomes more realistic. 0 = ideal model.</p>
+  </section>
+
+  <button type="submit" id="run" class="primary">Run simulation</button>
+  <div id="status" class="msg"></div>
+</form>
+
+<div id="results">
+  <div id="busy" class="busy" hidden role="status" aria-live="polite">
+    <div class="busy-card">
+      <div class="spinner" aria-hidden="true"></div>
+      <div class="busy-msg" id="busy_msg">Starting…</div>
+      <div class="busy-bar"><div id="busy_fill"></div></div>
+      <div class="busy-meta"><span id="busy_pct">0 %</span><span id="busy_time">0.0 s</span></div>
+    </div>
+  </div>
+  <div id="kpis" class="kpis"></div>
+  <div id="warnings" class="warn"></div>
+  <div class="plots">
+    <figure><figcaption>Chamber pressure</figcaption><div id="p_pressure" class="plot"></div></figure>
+    <figure><figcaption>Thrust</figcaption><div id="p_thrust" class="plot"></div></figure>
+    <figure class="burnback wide"><figcaption>Grain burn-back <span id="bb_prop" class="cap-note"></span></figcaption>
+      <div class="bb-views">
+        <div class="bb-view">
+          <canvas id="bb_canvas" width="260" height="260" aria-label="Grain cross-section at the selected time"></canvas>
+          <div class="bb-label" id="bb_label_cs">Cross-section, seen from the nozzle (dashed: plane of the longitudinal section)</div>
+        </div>
+        <div class="bb-view side">
+          <canvas id="bb_side" width="620" height="200" aria-label="Longitudinal section of the motor at the selected time"></canvas>
+          <div class="bb-label">Longitudinal section through the axis: head end on the left, nozzle on the right</div>
+        </div>
+      </div>
+      <div class="bb-bottom">
+        <div>
+          <div class="bb-controls">
+            <button type="button" id="bb_play" class="icon" aria-label="Play">▶</button>
+            <input type="range" id="bb_slider" min="0" max="0" value="0" step="1" aria-label="Time">
+          </div>
+          <div id="bb_readout" class="bb-readout"></div>
+        </div>
+        <canvas id="bb_trace" width="420" height="90" aria-label="Chamber pressure with the selected time"></canvas>
+      </div>
+      <div class="bb-export">
+        <span class="bb-export-title">Export the burn-back</span>
+        <button type="button" id="ex_png" class="small">PNG (current frame)</button>
+        <button type="button" id="ex_gif" class="small">GIF animation</button>
+        <button type="button" id="ex_vid" class="small">Video (MP4/WebM)</button>
+        <label>Length [s]<input type="number" id="ex_len" min="1" max="60" step="1" value="6"></label>
+        <label>Frames/s<select id="ex_fps"><option>10</option><option selected>15</option><option>25</option></select></label>
+        <span id="exportmsg" class="msg"></span>
+      </div>
+      <p id="graindesc" class="hint"></p></figure>
+    <figure><figcaption>Burning area / throat area (K<sub>n</sub>) vs. burnt web</figcaption><div id="p_kn" class="plot"></div></figure>
+  </div>
+  <div id="downloads"></div>
+  <details id="tablewrap"><summary>Results table</summary><div id="table"></div></details>
+</div>
+</main>
+
+<footer>{{ info.name }} {{ info.version }} · MIT licence · For education only – rocket motors are dangerous; follow the law and your rocketry association's safety code.</footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

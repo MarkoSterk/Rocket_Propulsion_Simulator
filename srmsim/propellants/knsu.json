@@ -1,0 +1,20 @@
+{
+  "name": "KNSU",
+  "description": "Potassium nitrate / sucrose 65/35 (O/F by mass), cast. Data after R. Nakka.",
+  "composition": {"KNO3": 0.65, "C12H22O11 (sucrose)": 0.35},
+  "density": 1795,
+  "density_ideal": 1889,
+  "combustion_temperature": 1720,
+  "molar_mass": 42.02,
+  "gamma_chamber": 1.133,
+  "gamma_exhaust": 1.044,
+  "burn_rate": {
+    "units": {"pressure": "MPa", "rate": "mm/s"},
+    "ranges": [
+      {"p_min": 0.101, "p_max": 6.895, "a": 8.260, "n": 0.319}
+    ]
+  },
+  "references": [
+    "R. Nakka, KNSU propellant chemistry and performance characteristics, http://www.nakka-rocketry.net/succhem.html"
+  ]
+}

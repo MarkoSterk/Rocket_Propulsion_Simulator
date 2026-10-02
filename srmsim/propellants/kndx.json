@@ -1,0 +1,25 @@
+{
+  "name": "KNDX",
+  "description": "Potassium nitrate / dextrose 65/35 (O/F by mass), cast. Data after R. Nakka.",
+  "composition": {"KNO3": 0.65, "C6H12O6 (dextrose)": 0.35},
+  "density": 1785,
+  "density_ideal": 1879,
+  "combustion_temperature": 1710,
+  "molar_mass": 42.39,
+  "gamma_chamber": 1.1308,
+  "gamma_exhaust": 1.043,
+  "burn_rate": {
+    "units": {"pressure": "MPa", "rate": "mm/s"},
+    "ranges": [
+      {"p_min": 0.103, "p_max": 0.779, "a": 8.875, "n": 0.619},
+      {"p_min": 0.779, "p_max": 2.572, "a": 7.553, "n": -0.009},
+      {"p_min": 2.572, "p_max": 5.930, "a": 3.841, "n": 0.688},
+      {"p_min": 5.930, "p_max": 8.502, "a": 17.20, "n": -0.148},
+      {"p_min": 8.502, "p_max": 11.20, "a": 4.775, "n": 0.442}
+    ]
+  },
+  "references": [
+    "R. Nakka, KNDX propellant: burn rate, http://www.nakka-rocketry.net/dextrose.html",
+    "R. Nakka, SRM 2014 spreadsheet, http://www.nakka-rocketry.net/softw.html"
+  ]
+}
