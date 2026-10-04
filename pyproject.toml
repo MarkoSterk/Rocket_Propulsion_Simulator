@@ -1,6 +1,6 @@
 [project]
 name = "rocket-propulsion-simulator"
-version = "2.2.0"
+version = "2.3.0"
 description = "Web application for internal-ballistics simulation of solid rocket motors (chamber pressure and thrust)"
 readme = "README.md"
 license = { text = "MIT" }

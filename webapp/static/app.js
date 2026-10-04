@@ -114,7 +114,7 @@ function renderPropInfo() {
   const rows = p.ranges.map((r) => `<tr><td>${r.p_min}–${r.p_max}</td><td>${r.a}</td><td>${r.n}</td></tr>`).join("");
   $("propinfo").innerHTML =
     `<p>${p.description || ""}</p>
-     <p>ρ = ${p.density} kg/m³ · T<sub>c</sub> = ${p.T} K · M = ${p.M} g/mol · γ = ${p.gamma_c} / ${p.gamma_e} · c* = ${p.cstar} m/s</p>
+     <p>ρ = ${p.density} kg/m³ · T<sub>c</sub> = ${p.T} K · M = ${p.M} g/mol · ${p.gamma_c === p.gamma_e ? `γ = ${p.gamma_c}` : `γ<sub>c</sub> = ${p.gamma_c} · γ<sub>e</sub> = ${p.gamma_e}`} · ideal c* = ${p.cstar} m/s</p>
      <table><thead><tr><th>p [MPa]</th><th>a [mm/s/MPa<sup>n</sup>]</th><th>n</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
@@ -144,10 +144,10 @@ function renderResults(j) {
     kpi("peak thrust", fmt(s.peak_thrust_N, 0), " N") +
     kpi("average thrust", fmt(s.average_thrust_N, 0), " N") +
     kpi("total impulse", fmt(s.total_impulse_Ns, 0), " N s") +
-    kpi("burn time", fmt(s.burn_time_s, 2), " s") +
+    kpi("burn time (F ≥ 10 % of peak)", fmt(s.burn_time_s, 2), " s") +
     kpi("specific impulse", fmt(s.specific_impulse_s, 1), " s") +
     kpi("propellant mass", fmt(s.propellant_mass_kg, 3), " kg") +
-    kpi("motor class", s.motor_class, "");
+    kpi("simulated motor class", s.motor_class, "");
   $("warnings").innerHTML = j.warnings.map((w) => `<p>⚠ ${w}</p>`).join("");
   $("p_pressure").innerHTML = j.plots.pressure;
   $("p_thrust").innerHTML = j.plots.thrust;

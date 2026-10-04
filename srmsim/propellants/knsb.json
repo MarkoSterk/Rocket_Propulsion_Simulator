@@ -1,13 +1,12 @@
 {
   "name": "KNSB",
-  "description": "Potassium nitrate / sorbitol 65/35 (O/F by mass), cast. Data after R. Nakka.",
+  "description": "Potassium nitrate / sorbitol 65/35 (O/F by mass), cast. Data after R. Nakka (SRM 2023).",
   "composition": {"KNO3": 0.65, "C6H14O6 (sorbitol)": 0.35},
   "density": 1750,
   "density_ideal": 1841,
   "combustion_temperature": 1600,
   "molar_mass": 39.90,
-  "gamma_chamber": 1.1361,
-  "gamma_exhaust": 1.042,
+  "gamma_chamber": 1.137,
   "burn_rate": {
     "units": {"pressure": "MPa", "rate": "mm/s"},
     "ranges": [
@@ -19,7 +18,7 @@
     ]
   },
   "references": [
-    "R. Nakka, KNSB propellant, http://www.nakka-rocketry.net/sorb.html",
-    "D. Reilly et al., openMotor, https://github.com/reilleya/openMotor"
+    "R. Nakka, KNSB propellant, https://www.nakka-rocketry.net/sorb.html",
+    "R. Nakka, SRM 2023 solid rocket motor performance spreadsheet (Propellant data and Burnrate sheets, KNSB fine), https://www.nakka-rocketry.net/softw.html"
   ]
 }

@@ -7,7 +7,7 @@
   "combustion_temperature": 1650,
   "molar_mass": 41.0,
   "gamma_chamber": 1.13,
-  "gamma_exhaust": 1.04,
+  "gamma_exhaust": 1.13,
   "burn_rate": {
     "units": {"pressure": "MPa", "rate": "mm/s"},
     "ranges": [

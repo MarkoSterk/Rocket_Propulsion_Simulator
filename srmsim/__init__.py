@@ -12,4 +12,4 @@ from .grains import (Grain, CircularCoreGrain, EndBurnerGrain, StarGrain, CrossG
 from .nozzle import Nozzle
 from .motor import Motor, Chamber, SimulationResult, size_throat, motor_class
 
-__version__ = "2.2.0"
+__version__ = "2.3.0"

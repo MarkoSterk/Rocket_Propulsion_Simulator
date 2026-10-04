@@ -1,0 +1,334 @@
+{
+  "1_equilibrium_pressure": {
+    "end burner KNSU": {
+      "Kn": 194.92,
+      "p_sim_MPa": 3.9993,
+      "p_eq7_MPa": 4.0401,
+      "p_eq7_gasfill_MPa": 3.9993,
+      "dev_eq7_gasfill_pct": -0.0
+    },
+    "end burner KNDX": {
+      "Kn": 194.92,
+      "p_sim_MPa": 2.31,
+      "p_eq7_MPa": 2.3193,
+      "p_eq7_gasfill_MPa": 2.31,
+      "dev_eq7_gasfill_pct": 0.0
+    },
+    "end burner KNSB": {
+      "Kn": 194.92,
+      "p_sim_MPa": 2.335,
+      "p_eq7_MPa": 2.3447,
+      "p_eq7_gasfill_MPa": 2.335,
+      "dev_eq7_gasfill_pct": 0.0
+    },
+    "circular canal A KNSU": {
+      "max_abs_dev_pct": 0.711,
+      "mean_dev_pct": -0.441
+    },
+    "circular canal A KNDX": {
+      "max_abs_dev_pct": 0.199,
+      "mean_dev_pct": -0.149
+    },
+    "circular canal A KNSB": {
+      "max_abs_dev_pct": 1.368,
+      "mean_dev_pct": -0.156
+    }
+  },
+  "2_time_step": {
+    "KNSU": {
+      "tau0_ms": 0.963,
+      "steps": {
+        "tau/2 (h=0.481 ms)": {
+          "p_max_MPa": "-0.0213 %",
+          "I_Ns": "+0.0151 %",
+          "t_b_s": "-0.0145 %",
+          "Isp_s": "+0.0151 %",
+          "F_max_N": "-0.0234 %"
+        },
+        "tau/4 (h=0.241 ms)": {
+          "p_max_MPa": "-0.0023 %",
+          "I_Ns": "-0.0018 %",
+          "t_b_s": "-0.0145 %",
+          "Isp_s": "-0.0018 %",
+          "F_max_N": "-0.0025 %"
+        },
+        "tau/8 (h=0.120 ms)": {
+          "p_max_MPa": "-0.0024 %",
+          "I_Ns": "-0.0047 %",
+          "t_b_s": "-0.0062 %",
+          "Isp_s": "-0.0047 %",
+          "F_max_N": "-0.0026 %"
+        },
+        "tau/16 (h=0.060 ms)": {
+          "p_max_MPa": "-0.0024 %",
+          "I_Ns": "-0.0007 %",
+          "t_b_s": "-0.0021 %",
+          "Isp_s": "-0.0007 %",
+          "F_max_N": "-0.0027 %"
+        }
+      }
+    },
+    "KNDX": {
+      "tau0_ms": 0.971,
+      "steps": {
+        "tau/2 (h=0.485 ms)": {
+          "p_max_MPa": "-0.0112 %",
+          "I_Ns": "+0.0038 %",
+          "t_b_s": "-0.0121 %",
+          "Isp_s": "+0.0038 %",
+          "F_max_N": "-0.0133 %"
+        },
+        "tau/4 (h=0.243 ms)": {
+          "p_max_MPa": "-0.0038 %",
+          "I_Ns": "+0.0063 %",
+          "t_b_s": "-0.0121 %",
+          "Isp_s": "+0.0063 %",
+          "F_max_N": "-0.0044 %"
+        },
+        "tau/8 (h=0.121 ms)": {
+          "p_max_MPa": "+0.0000 %",
+          "I_Ns": "+0.0013 %",
+          "t_b_s": "-0.0061 %",
+          "Isp_s": "+0.0013 %",
+          "F_max_N": "+0.0001 %"
+        },
+        "tau/16 (h=0.061 ms)": {
+          "p_max_MPa": "+0.0000 %",
+          "I_Ns": "+0.0005 %",
+          "t_b_s": "-0.0030 %",
+          "Isp_s": "+0.0005 %",
+          "F_max_N": "+0.0000 %"
+        }
+      }
+    }
+  },
+  "3_grid": {
+    "B star": {
+      "reference": "1601",
+      "throat_mm": 16.884,
+      "grids": {
+        "401": {
+          "web_mm": 12.458,
+          "max_dAb_over_Abmax_pct": 11.267,
+          "p_max_MPa": "-1.116 %",
+          "I_Ns": "-0.393 %",
+          "t_b_s": "+0.911 %",
+          "Isp_s": "-0.390 %",
+          "F_max_N": "-1.225 %"
+        },
+        "801": {
+          "web_mm": 12.428,
+          "max_dAb_over_Abmax_pct": 7.268,
+          "p_max_MPa": "-0.343 %",
+          "I_Ns": "-0.143 %",
+          "t_b_s": "+0.325 %",
+          "Isp_s": "-0.143 %",
+          "F_max_N": "-0.377 %"
+        },
+        "1601": {
+          "web_mm": 12.411,
+          "max_dAb_over_Abmax_pct": 0.0,
+          "p_max_MPa": "+0.000 %",
+          "I_Ns": "+0.000 %",
+          "t_b_s": "+0.000 %",
+          "Isp_s": "+0.000 %",
+          "F_max_N": "+0.000 %"
+        }
+      }
+    },
+    "C cross": {
+      "reference": "1601",
+      "throat_mm": 17.431,
+      "grids": {
+        "401": {
+          "web_mm": 14.025,
+          "max_dAb_over_Abmax_pct": 1.746,
+          "p_max_MPa": "-0.200 %",
+          "I_Ns": "-0.244 %",
+          "t_b_s": "-0.150 %",
+          "Isp_s": "-0.120 %",
+          "F_max_N": "-0.220 %"
+        },
+        "801": {
+          "web_mm": 14.032,
+          "max_dAb_over_Abmax_pct": 3.154,
+          "p_max_MPa": "-0.135 %",
+          "I_Ns": "+0.091 %",
+          "t_b_s": "+0.189 %",
+          "Isp_s": "-0.028 %",
+          "F_max_N": "-0.149 %"
+        },
+        "1601": {
+          "web_mm": 14.059,
+          "max_dAb_over_Abmax_pct": 0.0,
+          "p_max_MPa": "+0.000 %",
+          "I_Ns": "+0.000 %",
+          "t_b_s": "+0.000 %",
+          "Isp_s": "+0.000 %",
+          "F_max_N": "+0.000 %"
+        }
+      }
+    },
+    "D moon": {
+      "reference": "1601",
+      "throat_mm": 11.568,
+      "grids": {
+        "401": {
+          "web_mm": 25.904,
+          "max_dAb_over_Abmax_pct": 0.911,
+          "p_max_MPa": "-0.457 %",
+          "I_Ns": "-0.097 %",
+          "t_b_s": "-0.103 %",
+          "Isp_s": "-0.083 %",
+          "F_max_N": "-0.501 %"
+        },
+        "801": {
+          "web_mm": 25.895,
+          "max_dAb_over_Abmax_pct": 1.374,
+          "p_max_MPa": "-0.977 %",
+          "I_Ns": "-0.056 %",
+          "t_b_s": "+0.012 %",
+          "Isp_s": "-0.053 %",
+          "F_max_N": "-1.072 %"
+        },
+        "1601": {
+          "web_mm": 25.943,
+          "max_dAb_over_Abmax_pct": 0.0,
+          "p_max_MPa": "+0.000 %",
+          "I_Ns": "+0.000 %",
+          "t_b_s": "+0.000 %",
+          "Isp_s": "+0.000 %",
+          "F_max_N": "+0.000 %"
+        }
+      }
+    },
+    "A circular (numeric)": {
+      "reference": "analytic",
+      "throat_mm": 16.773,
+      "grids": {
+        "401": {
+          "web_mm": 14.997,
+          "max_dAb_over_Abmax_pct": 0.487,
+          "p_max_MPa": "-0.159 %",
+          "I_Ns": "-0.005 %",
+          "t_b_s": "-0.319 %",
+          "Isp_s": "-0.003 %",
+          "F_max_N": "-0.175 %"
+        },
+        "801": {
+          "web_mm": 15.007,
+          "max_dAb_over_Abmax_pct": 0.309,
+          "p_max_MPa": "-0.197 %",
+          "I_Ns": "-0.041 %",
+          "t_b_s": "-0.216 %",
+          "Isp_s": "-0.038 %",
+          "F_max_N": "-0.217 %"
+        },
+        "1601": {
+          "web_mm": 15.036,
+          "max_dAb_over_Abmax_pct": 0.172,
+          "p_max_MPa": "-0.074 %",
+          "I_Ns": "+0.178 %",
+          "t_b_s": "+0.000 %",
+          "Isp_s": "+0.181 %",
+          "F_max_N": "-0.082 %"
+        }
+      }
+    }
+  },
+  "4_srm2023": {
+    "case": "SRM_2023.xls example: KNDX, 4 BATES segments 115 mm, D 69 mm, d 20 mm, all faces except the outer surface burning; chamber 75 x 470 mm; throat 221.47 mm2; expansion ratio 8; combustion efficiency 0.95 (T = 0.95 T0); nozzle efficiency 0.85; p_a = 0.101 MPa; erosive burning off",
+    "rows": {
+      "grain_mass_kg": {
+        "SRM 2023": 2.8124,
+        "this model": 2.8124,
+        "diff": "-0.00 %"
+      },
+      "p_max_MPa_abs": {
+        "SRM 2023": 6.4047,
+        "this model": 6.3162,
+        "diff": "-1.38 %"
+      },
+      "t_burnout_s": {
+        "SRM 2023": 1.9422,
+        "this model": 1.964,
+        "diff": "+1.12 %"
+      },
+      "F_max_N": {
+        "SRM 2023": 1968.1,
+        "this model": 1931.4547,
+        "diff": "-1.86 %"
+      },
+      "I_Ns": {
+        "SRM 2023": 3501.5,
+        "this model": 3415.9014,
+        "diff": "-2.44 %"
+      },
+      "Isp_s": {
+        "SRM 2023": 126.96,
+        "this model": 123.8629,
+        "diff": "-2.44 %"
+      }
+    },
+    "overlay": "tools/verification/verification_srm2023.png"
+  },
+  "5_low_pressure_nozzle": {
+    "nozzle eps=6 KNSU": {
+      "gamma_e": 1.133,
+      "pe_over_pc": 0.02903,
+      "separation_below_MPa": 1.396,
+      "pc_where_unseparated_CF_would_be_0_MPa": 0.357,
+      "CF": {
+        "6 MPa": 1.6016,
+        "4 MPa": 1.5509,
+        "2 MPa": 1.3989,
+        "1 MPa": 1.1853,
+        "0.5 MPa": 0.985,
+        "0.3 MPa": 0.801,
+        "0.2 MPa": 0.6208
+      },
+      "CF_no_separation": {
+        "4 MPa": 1.5509,
+        "2 MPa": 1.3989,
+        "1 MPa": 1.095,
+        "0.5 MPa": 0.487,
+        "0.3 MPa": -0.3236,
+        "0.2 MPa": -1.3368
+      },
+      "CF_vacuum": 1.7029,
+      "momentum_term": 1.5287
+    },
+    "one grain vs BATES (KNSU)": {
+      "1 x 300 mm (canal)": {
+        "Isp_s": 115.648,
+        "Isp_vac_s": 137.542,
+        "share_I_separated_pct": 11.098,
+        "share_mass_separated_pct": 12.933,
+        "Isp_without_separation_model_s": 114.985,
+        "throat_mm": 16.783,
+        "gain_sea_level_pct": 0.0,
+        "gain_vacuum_pct": 0.0
+      },
+      "3 x 100 mm (BATES)": {
+        "Isp_s": 123.902,
+        "Isp_vac_s": 137.549,
+        "share_I_separated_pct": 0.199,
+        "share_mass_separated_pct": 0.07,
+        "Isp_without_separation_model_s": 123.838,
+        "throat_mm": 14.254,
+        "gain_sea_level_pct": 7.14,
+        "gain_vacuum_pct": 0.01
+      },
+      "4 x 75 mm (BATES)": {
+        "Isp_s": 124.246,
+        "Isp_vac_s": 137.555,
+        "share_I_separated_pct": 0.2,
+        "share_mass_separated_pct": 0.064,
+        "Isp_without_separation_model_s": 124.183,
+        "throat_mm": 14.146,
+        "gain_sea_level_pct": 7.43,
+        "gain_vacuum_pct": 0.01
+      }
+    }
+  }
+}

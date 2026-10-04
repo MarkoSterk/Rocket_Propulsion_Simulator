@@ -17,6 +17,12 @@ def area_ratio_from_mach(M: float, g: float) -> float:
     return (1.0 / M) * ((2.0 / (g + 1.0)) * (1.0 + 0.5 * (g - 1.0) * M * M)) ** ((g + 1.0) / (2.0 * (g - 1.0)))
 
 
+def area_ratio_from_pressure(pr: float, g: float) -> float:
+    """A/A_t of the supersonic section where p/p_c = pr (pr below the critical ratio)."""
+    M2 = 2.0 / (g - 1.0) * (pr ** (-(g - 1.0) / g) - 1.0)
+    return area_ratio_from_mach(math.sqrt(max(M2, 1.0)), g)
+
+
 @lru_cache(maxsize=256)
 def exit_pressure_ratio(eps: float, g: float) -> float:
     """p_e/p_c for a supersonic exit with expansion ratio eps = A_e/A_t."""
@@ -32,6 +38,7 @@ class Nozzle:
     exit_diameter: float
     divergence_half_angle: float = 15.0
     efficiency: float = 0.90
+    separation_ratio: float = 0.4
 
     @property
     def throat_area(self) -> float:
@@ -61,12 +68,31 @@ class Nozzle:
         return p_c * At * math.sqrt(2.0 * g / ((g - 1.0) * R * T) *
                                     (pr ** (2.0 / g) - pr ** ((g + 1.0) / g)))
 
+    def flow_state(self, p_c: float, p_a: float, g_e: float):
+        """(p_e/p_c, effective area ratio) of the supersonic flow.
+
+        Without separation the exit pressure follows from the expansion ratio alone.
+        If it falls below ``separation_ratio * p_a`` (Summerfield criterion), the flow
+        is assumed to separate where the wall pressure reaches that value; the nozzle
+        then acts as a shorter nozzle ending at the separation point.
+        """
+        eps = self.expansion_ratio
+        pe_pc = exit_pressure_ratio(eps, g_e)
+        if self.separation_ratio > 0.0 and pe_pc * p_c < self.separation_ratio * p_a:
+            ps_pc = self.separation_ratio * p_a / p_c
+            if ps_pc < critical_pressure_ratio(g_e):
+                return ps_pc, area_ratio_from_pressure(ps_pc, g_e)
+        return pe_pc, eps
+
+    def is_separated(self, p_c: float, p_a: float, g_e: float) -> bool:
+        return self.flow_state(p_c, p_a, g_e)[1] < self.expansion_ratio
+
     def thrust_coefficient(self, p_c: float, p_a: float, g_e: float) -> float:
-        """Ideal thrust coefficient C_F (choked nozzle, supersonic exit)."""
-        pe_pc = exit_pressure_ratio(self.expansion_ratio, g_e)
+        """Ideal thrust coefficient C_F (choked throat, supersonic exit, Eq. 9)."""
+        pe_pc, eps = self.flow_state(p_c, p_a, g_e)
         term = (2.0 * g_e * g_e / (g_e - 1.0)) * (2.0 / (g_e + 1.0)) ** ((g_e + 1.0) / (g_e - 1.0)) \
             * (1.0 - pe_pc ** ((g_e - 1.0) / g_e))
-        return math.sqrt(term) + (pe_pc - p_a / p_c) * self.expansion_ratio
+        return math.sqrt(term) + (pe_pc - p_a / p_c) * eps
 
     def thrust(self, p_c: float, p_a: float, R: float, T: float, g_c: float, g_e: float) -> float:
         if p_c <= p_a:

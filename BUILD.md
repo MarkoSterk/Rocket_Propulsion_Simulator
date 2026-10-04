@@ -84,7 +84,7 @@ Start the program; the console shows
 
 ```
 ================================================================
-  Rocket Propulsion Simulator 2.2.0
+  Rocket Propulsion Simulator 2.3.0
   Go to http://localhost:8050 in your favorite browser.
   (If that address does not open, use http://127.0.0.1:8050)
   Keep this window open while you use the app; press Ctrl+C to stop it.

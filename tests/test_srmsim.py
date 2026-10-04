@@ -104,3 +104,24 @@ def test_end_burner_cannot_be_segmented():
     from srmsim import SegmentedGrain
     with pytest.raises(ValueError):
         SegmentedGrain(EndBurnerGrain(46 * mm, 100 * mm), 2, "none")
+
+
+def test_separated_nozzle_thrust_coefficient_stays_positive():
+    n = Nozzle(10 * mm, 10 * mm * 6 ** 0.5)
+    g = Propellant.load("KNSU").gamma_exhaust
+    for pc in np.linspace(0.18e6, 6e6, 200):
+        assert n.thrust_coefficient(pc, 101325.0, g) > 0
+    assert n.is_separated(0.5e6, 101325.0, g)
+    assert not n.is_separated(4e6, 101325.0, g)
+    assert abs(n.thrust_coefficient(4e6, 101325.0, g) -
+               Nozzle(10 * mm, 10 * mm * 6 ** 0.5, separation_ratio=0.0).thrust_coefficient(4e6, 101325.0, g)) < 1e-12
+
+
+def test_time_step_convergence():
+    from srmsim import Chamber
+    m = Motor(Propellant.load("KNSU"), CircularCoreGrain(46 * mm, 16 * mm, 300 * mm),
+              Nozzle(16.78 * mm, 16.78 * mm * 6 ** 0.5), Chamber(46 * mm, 310 * mm))
+    a = m.simulate()
+    b = m.simulate(tau_fraction=0.0625, max_points=10 ** 7)
+    assert abs(a.total_impulse / b.total_impulse - 1) < 1e-3
+    assert abs(a.peak_pressure / b.peak_pressure - 1) < 1e-3

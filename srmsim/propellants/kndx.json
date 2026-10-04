@@ -1,13 +1,12 @@
 {
   "name": "KNDX",
-  "description": "Potassium nitrate / dextrose 65/35 (O/F by mass), cast. Data after R. Nakka.",
+  "description": "Potassium nitrate / dextrose 65/35 (O/F by mass), cast. Data after R. Nakka (SRM 2023).",
   "composition": {"KNO3": 0.65, "C6H12O6 (dextrose)": 0.35},
   "density": 1785,
   "density_ideal": 1879,
   "combustion_temperature": 1710,
-  "molar_mass": 42.39,
+  "molar_mass": 42.42,
   "gamma_chamber": 1.1308,
-  "gamma_exhaust": 1.043,
   "burn_rate": {
     "units": {"pressure": "MPa", "rate": "mm/s"},
     "ranges": [
@@ -19,7 +18,7 @@
     ]
   },
   "references": [
-    "R. Nakka, KNDX propellant: burn rate, http://www.nakka-rocketry.net/dextrose.html",
-    "R. Nakka, SRM 2014 spreadsheet, http://www.nakka-rocketry.net/softw.html"
+    "R. Nakka, KNDX propellant, https://www.nakka-rocketry.net/dex.html",
+    "R. Nakka, SRM 2023 solid rocket motor performance spreadsheet (Propellant data and Burnrate sheets), https://www.nakka-rocketry.net/softw.html"
   ]
 }

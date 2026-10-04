@@ -38,7 +38,7 @@ MOTOR_CLASSES = [(c, 1.25 * 2 ** i) for i, c in enumerate("ABCDEFGHIJKLMNO")]
 
 
 def motor_class(total_impulse: float) -> str:
-    """NAR/Tripoli letter class from total impulse in N s."""
+    """Impulse-class letter (NFPA 1125 / NAR: each letter doubles the total impulse) in N s."""
     if total_impulse <= 2.5:
         return "A" if total_impulse > 1.25 else "1/2A or smaller"
     for letter, lower in MOTOR_CLASSES:
@@ -221,16 +221,21 @@ class Motor:
         return self.free_volume(0.0) * cstar / (self.R * self.T * self.nozzle.throat_area)
 
     def simulate(self, dt: float = 1e-3, t_max: float = 120.0, max_points: int = 6000,
-                 progress: Optional[Callable[[float], None]] = None) -> SimulationResult:
+                 progress: Optional[Callable[[float], None]] = None,
+                 tau_fraction: float = 0.25) -> SimulationResult:
         """Integrate the chamber-pressure and web equations with classical RK4.
 
-        The step is limited to a quarter of the chamber time constant so that the
-        (mildly stiff) pressure equation is resolved during ignition and tail-off.
+        The fixed step is h = min(dt, tau_fraction * tau(0)), where tau(0) is the chamber
+        time constant at ignition (the smallest value during the burn, because the free
+        volume only grows), so that the mildly stiff pressure equation is resolved during
+        ignition and tail-off.  Initial state: p = p_a, w = 0 (whole surface ignited).
+        The burn phase ends when w reaches the web; the tail-off is integrated until
+        p <= 1.02 p_a (or t_max).
         ``progress(f)``, if given, is called now and then with the completed
         fraction 0 <= f <= 1 (burnt web until burnout, then the pressure decay).
         """
         warnings = []
-        h = min(dt, 0.25 * self.time_constant())
+        h = min(dt, tau_fraction * self.time_constant())
         web = self.web
         p, w, t = self.p_a, 0.0, 0.0
         ts, ps, ws = [t], [p], [w]
@@ -301,7 +306,8 @@ class Motor:
         grain = grain_from_dict(d["grain"])
         nd = d["nozzle"]
         nozzle = Nozzle(nd["throat_diameter_mm"] * 1e-3, nd["exit_diameter_mm"] * 1e-3,
-                        nd.get("divergence_half_angle_deg", 15.0), nd.get("efficiency", 0.90))
+                        nd.get("divergence_half_angle_deg", 15.0), nd.get("efficiency", 0.90),
+                        nd.get("separation_ratio", 0.4))
         ch = d.get("chamber")
         chamber = Chamber(ch["inner_diameter_mm"] * 1e-3, ch["length_mm"] * 1e-3) if ch else None
         return cls(propellant, grain, nozzle, chamber,

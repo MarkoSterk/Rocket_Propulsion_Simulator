@@ -1,13 +1,12 @@
 {
   "name": "KNSU",
-  "description": "Potassium nitrate / sucrose 65/35 (O/F by mass), cast. Data after R. Nakka.",
+  "description": "Potassium nitrate / sucrose 65/35 (O/F by mass), cast. Data after R. Nakka (SRM 2023).",
   "composition": {"KNO3": 0.65, "C12H22O11 (sucrose)": 0.35},
   "density": 1795,
   "density_ideal": 1889,
   "combustion_temperature": 1720,
   "molar_mass": 42.02,
   "gamma_chamber": 1.133,
-  "gamma_exhaust": 1.044,
   "burn_rate": {
     "units": {"pressure": "MPa", "rate": "mm/s"},
     "ranges": [
@@ -15,6 +14,7 @@
     ]
   },
   "references": [
-    "R. Nakka, KNSU propellant chemistry and performance characteristics, http://www.nakka-rocketry.net/succhem.html"
+    "R. Nakka, KNSU propellant chemistry and performance characteristics, https://www.nakka-rocketry.net/succhem.html",
+    "R. Nakka, SRM 2023 solid rocket motor performance spreadsheet (Propellant data and Burnrate sheets), https://www.nakka-rocketry.net/softw.html"
   ]
 }
